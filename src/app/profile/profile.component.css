@@ -1,0 +1,131 @@
+.profile-container {
+    color: #fafafa;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+.profile-header {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    height: 110px;
+    grid-template-areas: 
+    "avatar name";
+    position: relative;
+    width: 100%;
+}
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    grid-area: avatar;
+    border: 5px solid #232323;
+    margin-left: 55px;
+    margin-top: 45px;
+}
+.profile-username {
+    grid-area: name;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 42px;
+    max-width: 100%;
+}
+.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 8px;
+    color: #606060;
+    z-index: 999;
+}
+@keyframes modal-toggle {
+    0% {
+        opacity: 0;
+        transform: translateY(-110vh);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes modal-close {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh);
+    }
+}
+#modal-background {
+    display: none;
+    position: absolute;
+    background: #0009;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    font-family: sans-serif;
+}
+#modal {
+    transform: translateY(-110vh);
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    margin: auto;
+    margin-top: 100px;
+}
+#userColor {
+    width: 80%;
+    height: 50px;
+}
+.contain-badges .badges {
+    width: 100%;
+    height: calc(100% - 110px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 64px 44px;
+}
+.contain-badges h2 {
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 12px;
+    font-size: 44px;
+}
+#onnone {
+    margin-top: 96px;
+}
+.badge {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+.badges > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 56px;
+}
+@media screen and (max-width: 768px){
+    .contain-badges {
+        padding: 32px 16px;
+    }
+    .contain-badges h2 {
+        font-size: 32px;
+    }
+    .badge {
+        width: 125px;
+        height: 125px;
+    }
+}

@@ -1,0 +1,11 @@
+
+<nav id="nav">
+    <ul class="nav-list">
+        <li class="nav-item" *ngIf="authenticated === true"><a routerLink="/train" (click)="_setActive('train')" >IA Train</a><div class="before {{active === 'train' ? 'active' : ''}}"></div></li>
+        <li class="nav-item" *ngIf="authenticated === true"><a routerLink="/options" (click)="_setActive('options')" >Options</a><div class="before {{active === 'options' ? 'active' : ''}}"></div></li>
+        <li class="nav-item"><a routerLink="/" (click)="_setActive('')" >Home</a><div class="before {{active === '' ? 'active' : ''}}"></div></li>
+        <li class="nav-item" *ngIf="authenticated === false"><a routerLink="/login" (click)="_setActive('login')" >Login</a><div class="before {{active === 'login' ? 'active' : ''}}"></div></li>
+        <li class="nav-item" *ngIf="authenticated === true"><a routerLink="/profile" (click)="_setActive('profile')">Profile</a><div class="before {{active === 'profile' ? 'active' : ''}}"></div></li>
+        <li class="nav-item" *ngIf="authenticated === true" (click)="logout()"><a (click)="logout()" style="cursor: pointer;">Logout</a><div class="before"></div></li>
+    </ul>
+</nav>

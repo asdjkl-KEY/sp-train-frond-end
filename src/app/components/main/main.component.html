@@ -1,0 +1,15 @@
+<div class="main-container">
+    <div id="info">
+        <div *ngFor="let message of messages" class="message-container">
+            <div class="message-bubble-{{message.author}}" id="message{{message.id}}" style="top: '{{height == 0 ? 12 : height}}px';">{{message.content}}</div>
+            <img src="assets/sparkly.gif" alt="Sparkly" id="sparkly" *ngIf="message.author === 'bot' && message.id === botLastMessage">
+            <div class="fa fa-user" id="user" *ngIf="message.author === 'user' && message.id == userLastMessage"></div>
+        </div>
+    </div>
+    <div id="talk">
+        <form id="form-talk" (submit)="sendMessage()">
+            <input type="text" placeholder="Escribe un texto..." autocomplete="off" name="talk" #typing [(ngModel)]="talk.content" >
+            <button type="submit" class="fa fa-arrow-right"></button>
+        </form>
+    </div>
+</div>

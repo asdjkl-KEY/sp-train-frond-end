@@ -1,0 +1,126 @@
+.main-container {
+    font-family: sans-serif;
+    color: #fff601;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 30px;
+    grid-template-areas: 
+        "content"
+        "talk";
+    width: 100%;
+    height: 100%;
+    gap: 24px;
+}
+#info {
+    grid-area: content;
+    position: relative;
+    overflow-y: auto;
+}
+#talk {
+    grid-area: talk;
+    padding: 0;
+    position: sticky;
+    bottom: 4px;
+}
+#sparkly {
+    position: absolute;
+    top: 0;
+    margin: 12px;
+    right: 0;
+    width: 100px;
+    height: auto;
+    transition: all 0.4s;
+}
+#user {
+    position: absolute;
+    top: 0;
+    margin: 12px;
+    left: 0;
+    width: 100px;
+    height: auto;
+    transition: all 0.4s;
+    font-size: 60px;
+    text-align: center;
+}
+
+.message-bubble-bot {
+    position: relative;
+    margin-top: 24px;
+    left: 24px;
+    width: calc(100% - 100px - 12px - 24px - 24px);
+    background: #acacac0f;
+    padding: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.message-bubble-bot:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background: #ffa601;
+}
+.message-bubble-user {
+    position: relative;
+    margin-top: 24px;
+    width: calc(100% - 100px - 12px - 24px);
+    background: #acacac5f;
+    padding: 12px;
+    left: calc(100px + 12px);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.message-bubble-user:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background: #fcfcfc;
+}
+
+/*Talkbar*/
+#form-talk {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+}
+#form-talk > input {
+    height: 100%;
+    padding: 2px 12px;
+    width: 60%;
+    margin-bottom: 4px;
+    margin-right: 12px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+#form-talk > button {
+    height: 100%;
+    width: height;
+    margin-bottom: 5px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+}
+#form-talk > button:hover {
+    background: #ffa601;
+    color: #000;
+}
+#form-talk > input:focus-visible {
+    box-shadow: 0 0 12px #ffa601;
+    border: 1px solid #fff601;
+}
+.message-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}

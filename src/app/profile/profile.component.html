@@ -1,0 +1,32 @@
+<div id="modal-background">
+    <div class="modal" id="modal">
+        <i class="icon fa fa-close" id="modal-close"></i>
+        <form id="changeColor">
+            <label for="color">Selecciona el color</label>
+            <input type="color" name="color" [(ngModel)]="user.color" id="userColor" (input)="changeColor()">
+        </form>
+    </div>
+</div>
+<div class="profile-container">
+    <div class="profile-header" #pfrlheader >{{setBackgroundHeader(pfrlheader)}}
+        <img src="{{user.avatarURL}}" alt="{{user.username}}" class="profile-avatar">
+        <h2 class="profile-username">{{user.username}}</h2>
+        <i class="fa fa-pencil icon" id="modal-toggle"></i>
+    </div>
+    <div class="profile-body">
+        <div class="contain-badges">
+            <div *ngIf="user.badges.length == 0" id="onnone">
+                <span class="title1">Que triste no tienes ninguna insignia >-<</span>
+                <span class="title2">Consigue algunas entrenandome! =:D</span>
+                <button type="button" class="btn btn-large btn-dark" (click)="moveToTrain()">Train Bot</button>
+            </div>
+            <h2>Medallas</h2>
+            <div class="badges">
+                <div *ngFor="let badge of user.badges">
+                    <img src="{{this.API + 'badges/' + badge.ref}}" alt="{{badge.name}}" title="{{badge.name}}" class="badge">
+                    <strong>{{badge.name}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="aside-card">
+    <h2 *ngIf="news.length <= 0" class="aside-title">No hay Novedades</h2>
+    <h2 *ngIf="news.length >= 1" class="aside-title">Novedades</h2>
+    <div *ngFor="let novedad of news" class="aside-card-component">
+        <div class="aside-card-title">
+            <h3>{{novedad.title}}</h3>
+        </div>
+        <div class="aside-card-content">
+            <p>{{novedad.content}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.footer-container {
+    color: #fff601;
+    font-family: sans-serif;
+    padding: 12px 0;
+    padding-top: 4px;
+}
+h2 > b > a {
+    color: #fff601;
+    text-decoration: none;
+}
+h2 {
+    text-align: center;
+}

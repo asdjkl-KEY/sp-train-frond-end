@@ -1,0 +1,33 @@
+<div class="train-container">
+    <h2 id="train-title"></h2>
+    <div class="contain-form">
+        <h3>Completa los campos y empecemos el entrenamiento!</h3>
+        <div *ngIf="message.content.length > 0" class="alert {{message.type}}">
+            <strong>{{message.content}}</strong>
+        </div>
+        <form id="formulario" (submit)="train()">
+            <div class="form-group">
+                <label for="question">Pregunta:</label>
+                <input type="text" name="question" [(ngModel)]="info.question">
+            </div>
+            <div class="form-group">
+                <label for="answer">Respuesta:</label>
+                <input type="text" name="answer" [(ngModel)]="info.answer">
+            </div>
+            <div class="form-group" *ngIf="isAll == true">
+                <label for="select">Sección</label>
+                <select name="select" id="select" [(ngModel)]="area">
+                    <option value="emotinal">Emotional</option>
+                    <option value="cotidian">Cotidian</option>
+                    <option value="intelligence">Intelligence</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-light">
+                    <i class="fas fa-plus"></i>
+                    Agregar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

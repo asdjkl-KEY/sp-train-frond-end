@@ -1,0 +1,110 @@
+<div class="options-modal" id="changeavatar">
+    <div class="modal-content" id="changeavatar-content">
+        <i class="fa fa-close icon" (click)="close('avatar')"></i>
+        <div *ngIf="msg.content.length > 0" class="alert {{msg.type}}">
+            <strong>{{msg.content}}</strong>
+        </div>
+        <h2>Cambiar Avatar</h2>
+        <div class="preview">
+            <img src="{{avatar}}" alt="avatar" id="preview-avatar">
+        </div>
+        <form (submit)="saveAvatar();">
+            <input type="file" accept=".png , .jpg, .jpeg" name="avatar" id="fileavatar" style="grid-area: input;" (input)="preview()" ><br>
+            <button type="button" class="btn btn-small btn-dark" (click)="close('avatar')" style="grid-area: button1;">Cancelar</button>
+            <button type="submit" class="btn btn-small btn-dark" style="grid-area: button2;">Guardar</button>
+        </form>
+    </div>
+</div>
+<div class="options-modal" id="changeemailname">
+    <div class="modal-content" id="changeemailname-content">
+        <i class="fa fa-close icon" (click)="close('namemail')"></i>
+        <h2>Cambiar Nombre | Email</h2>
+        <form  class="formulario">
+            <div *ngIf="msg.content.length > 0" class="alert {{msg.type}}">
+                <strong>{{msg.content}}</strong>
+            </div>
+            <div class="form-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" name="username" [(ngModel)]="user.username" autocomplete="off" (input)="verifyNameMail('username')">
+                <small *ngIf="message.name.length > 0" style="color: #fc0000">{{message.name}}</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" [(ngModel)]="user.email" autocomplete="off" (input)="verifyNameMail('email')">
+                <small *ngIf="message.email.length > 0" style="color: #fc0000">{{message.email}}</small>
+            </div>
+            <div class="form-group modal-buttons">
+                <button type="button" (click)="close('namemail')" class="btn btn-small btn-dark">Cancelar</button>
+                <button type="button" (click)="saveNamemail('namemail')" class="btn btn-small btn-dark">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="options-modal" id="changepassword">
+    <div class="modal-content" id="changepassword-content">
+        <i class="fa fa-close icon" (click)="close('password')"></i>
+        <h2>Cambiar Contraseña</h2>
+        <form class="formulario">
+            <div *ngIf="msg.content.length > 0" class="alert {{msg.type}}">
+                <strong>{{msg.content}}</strong>
+            </div>
+            <div class="form-group">
+                <label for="oldPassword">Contraseña antigua</label>
+                <input type="password" name="oldPassword" [(ngModel)]="_p.old" autocomplete="off"></div>
+            <div class="form-group">
+                <label for="pass1">Contraseña Nueva</label>
+                <input type="password" name="pass1" [(ngModel)]="_p.p1" autocomplete="off"></div>
+            <div class="form-group">
+                <label for="pass2">Confirmar Nueva Contraseña</label>
+                <input type="password" name="pass2" [(ngModel)]="_p.p2" autocomplete="off"></div>
+            <div class="form-group-buttons">
+                <button type="submit" class="btn btn-small btn-dark" (click)="close('password')">Cancelar</button>
+                <button type="submit" class="btn btn-small btn-dark" (click)="changePassword()">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="options-modal" id="registeruser" *ngIf="userinfo.admin == true">
+    <div class="modal-content" id="registeruser-content">
+        <i class="fa fa-close icon" (click)="close('register')"></i>
+        <h2>Registrar Nuevo Usuario</h2>
+        <form class="formulario">
+            <div *ngIf="msg.content.length > 0" class="alert {{msg.type}}">
+                <strong>{{msg.content}}</strong>
+            </div>
+            <div class="form-group">
+                <label for="username">Nombre del Usuario</label>
+                <input type="text" name="username" [(ngModel)]="_r.username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="email">Email del Usuario</label>
+                <input type="email" name="email" [(ngModel)]="_r.email" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña del Usuario</label>
+                <input type="password" name="password" [(ngModel)]="_r.password" autocomplete="off">
+            </div>
+            <div class="form-group-check">
+                <label for="areas">Areas</label>
+                <ul>
+                    <li><input type="checkbox" name="cotidian" [(ngModel)]="_r.areas[2].checked"><small>Cotidian</small></li>
+                    <li><input type="checkbox" name="intelligence" [(ngModel)]="_r.areas[1].checked"><small>Intelligence</small></li>
+                    <li><input type="checkbox" name="emotional" [(ngModel)]="_r.areas[0].checked"><small>Emotional</small></li>
+            
+                </ul>    
+            </div>
+            <div class="form-group-buttons">  
+                <button type="submit" class="btn btn-small btn-dark" (click)="close('register')">Cancelar</button>
+                <button type="submit" class="btn btn-small btn-dark" (click)="registerUser()">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="options-container">
+    <ul id="option-list">
+        <li class="option-item"><button class="btn btn-small btn-light" type="button" (click)="openModal('avatar')">Cambiar Avatar</button></li>
+        <li class="option-item"><button class="btn btn-small btn-light" type="button" (click)="openModal('namemail')">Cambiar Nombre | Email</button></li>
+        <li class="option-item"><button class="btn btn-small btn-light" type="button" (click)="openModal('password')">Cambiar Contraseña</button></li>
+        <li *ngIf="userinfo.admin == true" class="option-item"><button class="btn btn-small btn-light" type="button" (click)="openModal('register')">Registrar Usuario</button></li>
+    </ul>
+</div>

@@ -1,0 +1,36 @@
+.aside-card {
+    color: #fff601;
+    padding: 24px;
+    font-family: sans-serif;
+    text-align: left;
+}
+.aside-card-component {
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
+    width: 100%;
+    background: #565656;
+    margin-bottom: 12px;
+}
+.aside-card-title {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+.aside-card-content {
+    font-size: 12px;
+    text-align: justify;
+    margin-top: 9px;
+}
+.aside-title {
+    text-align: center;
+    margin-bottom: 16px;
+}
+.fa-close {
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .fa-close {
+        display: block;
+    }
+}
